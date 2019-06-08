@@ -26,7 +26,7 @@ namespace Factory
         public ILogger CreateLogger()
         {
             //Loglama ile ilgili işlemler burada 
-            return new DbLogger();
+            return new OracleLogger();
         }
     }
     public class FileLoggerFactory : ILoggerFactory
@@ -34,7 +34,7 @@ namespace Factory
         public ILogger CreateLogger()
         {
             //Loglama ile ilgili işlemler burada
-            return new FileLogger();
+            return new JsonLogger();
         }
     }
 
@@ -42,21 +42,48 @@ namespace Factory
     {
         void Log();
     }
-    public class DbLogger : ILogger
+    public class MssqlLogger : ILogger
     {
         public void Log()
         {
             Console.WriteLine("Logged with DatabaseLogger");
         }
     }
-    public class FileLogger : ILogger
+    public class MysqlLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged with DatabaseLogger");
+        }
+    }
+    public class OracleLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged with DatabaseLogger");
+        }
+    }
+    public class PostgreSqlLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged with DatabaseLogger");
+        }
+    }
+    public class XmlLogger : ILogger
     {
         public void Log()
         {
             Console.WriteLine("Logged with FileLogger");
         }
     }
-
+    public class JsonLogger : ILogger
+    {
+        public void Log()
+        {
+            Console.WriteLine("Logged with FileLogger");
+        }
+    }
     //iş katmanı
     public class CustomerManager
     {

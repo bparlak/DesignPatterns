@@ -10,6 +10,7 @@ namespace PlayerRole
             Animal animal = new Carnivore();
             animal.Name = "Lion";
             animal.habitatRoles.Add(new LandAnimal());
+            animal.habitatRoles[0].animal = animal;
             Console.WriteLine(animal.Name);
 
             Console.ReadKey();
@@ -51,7 +52,7 @@ namespace PlayerRole
     }
     public class HabitatRole
     {
-
+        public Animal animal { get; set; }
     }
     public class AquaticAnimal : HabitatRole//suda
     {
